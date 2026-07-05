@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    /* Nền tối chuyển màu huyền ảo giúp pháo hoa rực rỡ nhất */
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 90%;
+    z-index: 10; /* Nổi lên trên lớp pháo hoa */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    color: #fffa65;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 250, 101, 0.5);
+}
+
+#countdown {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+#splash {
+    color: #dfe4ea;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+button {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+}
+
+.credits {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #a4b0be;
+}
+
+/* --- ANIMATION PHÁO HOA TRÊN CSS --- */
+#fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firework-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* Các biến --x và --y sẽ được script sinh ngẫu nhiên hướng bay */
+        transform: translate(var(--x), var(--y)) scale(0.1);
+        opacity: 0;
+    }
+}

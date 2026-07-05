@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Happy Birthday Dad</title>
+</head>
+<body>
+    <div id="fireworks-container"></div>
+
+    <div class="overlay">
+        <h1>🎉 Chúc Bố Dương Sinh Nhật Vui Vẻ🎉</h1>
+        <p id="splash">Chúc bố tuổi mới luôn mạnh khỏe và hạnh phúc!</p>
+        <button onclick="celebrate()">Celebrate ✨</button>
+        <div class="credits">
+            <p>❤️ Con yêu bố rất nhiều ❤️</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
